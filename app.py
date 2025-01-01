@@ -34,6 +34,17 @@ def hello() -> str:
     return "Hello, World!"
 
 
+@app.route("/about")
+def about() -> str:
+    # Use basic logging with custom fields
+    logger.info(logField="custom-entry", arbitraryField="custom-entry")
+
+    # https://cloud.google.com/run/docs/logging#correlate-logs
+    logger.info("Child logger with trace Id.")
+
+    return "About!"
+
+
 def shutdown_handler(signal_int: int, frame: FrameType) -> None:
     logger.info(f"Caught Signal {signal.strsignal(signal_int)}")
 
