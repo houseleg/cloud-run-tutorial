@@ -42,7 +42,7 @@ def about() -> str:
     # https://cloud.google.com/run/docs/logging#correlate-logs
     logger.info("Child logger with trace Id.")
 
-    return "About!"
+    return "<h1>About<h1>"
 
 
 def shutdown_handler(signal_int: int, frame: FrameType) -> None:
